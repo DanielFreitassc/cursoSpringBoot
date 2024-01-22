@@ -31,7 +31,7 @@ public class PersonController {
     }
 
     @RequestMapping(value = "/{id}", method=RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE) // GET de um usuario consome JSON
-    public Person findBtId(@PathVariable(value = "id") String id) {
+    public Person findBtId(@PathVariable(value = "id") Long id) {
         return service.findById(id);
     }
 
@@ -46,7 +46,7 @@ public class PersonController {
     }
 
     @RequestMapping(value = "/{id}",method=RequestMethod.DELETE) // Não Produz nem consome nada e é void ou seja sem retorno
-    public void delete(@PathVariable(value = "id") String id) {
+    public void delete(@PathVariable(value = "id") Long id) {
 
     }
 }
