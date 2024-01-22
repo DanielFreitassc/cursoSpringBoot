@@ -47,7 +47,7 @@ public class PersonController {
 
     @RequestMapping(value = "/{id}",method=RequestMethod.DELETE) // Não Produz nem consome nada e é void ou seja sem retorno
     public void delete(@PathVariable(value = "id") Long id) {
-
+        service.delete(id);
     }
 }
           
