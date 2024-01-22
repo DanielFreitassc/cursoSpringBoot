@@ -8,8 +8,9 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.danielfreitassc.cursoSpringBoot.data.dto.v1.PersonDTO;
 import br.com.danielfreitassc.cursoSpringBoot.exceptions.ResourceNotFoundException;
-import br.com.danielfreitassc.cursoSpringBoot.models.Person;
+
 import br.com.danielfreitassc.cursoSpringBoot.repositories.PersonRepository;
 @Service
 public class PersonServices {
@@ -20,27 +21,27 @@ public class PersonServices {
     @Autowired
     PersonRepository repository;
     
-    public List<Person> findAll(){
+    public List<PersonDTO> findAll(){
 
         logger.info("Procurando varias pessoas");
 
         return repository.findAll();
     }
     
-    public Person findById(Long id){
+    public PersonDTO findById(Long id){
 
         logger.info("Procurando uma pessoa");
    
         return repository.findById(id)
             .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
     }
-    public Person create(Person person){
+    public PersonDTO create(PersonDTO person){
 
         logger.info("Criando uma pessoa");  
 
         return repository.save(person);
     }
-    public Person update(Person person){
+    public PersonDTO update(PersonDTO person){
 
         logger.info("Atualizando uma pessoa");
         
